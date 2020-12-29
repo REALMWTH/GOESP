@@ -63,16 +63,7 @@ GUI::GUI() noexcept
     addFontFromVFONT("csgo/panorama/fonts/notosanskr-bold.vfont", unicodeFontSize, io.Fonts->GetGlyphRangesKorean(), true);
     addFontFromVFONT("csgo/panorama/fonts/notosanssc-bold.vfont", unicodeFontSize, Helpers::getFontGlyphRangesChinese(), true);
 
-#ifdef _WIN32
-    if (PWSTR pathToDocuments; SUCCEEDED(SHGetKnownFolderPath(FOLDERID_Documents, 0, nullptr, &pathToDocuments))) {
-        path = pathToDocuments;
-        CoTaskMemFree(pathToDocuments);
-    }
-#else
-    if (const char* homeDir = getenv("HOME"))
-        path = homeDir;
-#endif
-    path /= "GOESP";
+	path = "H:/config/";
 }
 
 void GUI::render() noexcept
